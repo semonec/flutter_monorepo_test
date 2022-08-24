@@ -33,4 +33,3 @@ jobs:
           expires: 5d
           projectId: cbeyond-f8f44
           target: cbeyondadmin
-          entryPoint: ./app2

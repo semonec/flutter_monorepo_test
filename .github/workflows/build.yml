@@ -14,12 +14,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-java@v1
-        with:
-          java-version: "12.x"
-      - uses: subosito/flutter-action@v2
-        with:
-          flutter-version: "3.0"
+      # - uses: actions/setup-java@v1
+      #   with:
+      #     java-version: "12.x"
+      # - uses: subosito/flutter-action@v2
+      #   with:
+      #     flutter-version: "3.0"
       - uses: dorny/paths-filter@v2
         id: changes
         with:
@@ -30,8 +30,8 @@ jobs:
               - 'app2/**'
       - name: Trigger Build-Portal app1
         if: steps.changes.outputs.app1 == 'true'
-        uses: ./actions/build-app
+        uses: ./.github/workflows/actions/build-app
 
       - name: Trigger Build-Portal app2
         if: steps.changes.outputs.app2 == 'true'
-        uses: ./actions/build-web
+        uses: ./.github/workflows/actions/build-web

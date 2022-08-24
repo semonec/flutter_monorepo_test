@@ -1,17 +1,17 @@
 name: Build App
-jobs:
-  build:
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Pub get
-        working-directory: ./app1
-        run: flutter pub get
-      - name: Build
-        if: ${{ github.ref == 'refs/heads/main' }}
-        working-directory: ./app1
-        run: flutter build appbundle
-      - name: Build
-        if: ${{ github.ref != 'refs/heads/main' }}
-        working-directory: ./app1
-        run: flutter build apk
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Pub get
+      working-directory: ./app1
+      run: flutter pub get
+    - name: Build
+      if: ${{ github.ref == 'refs/heads/main' }}
+      working-directory: ./app1
+      run: flutter build appbundle
+    - name: Build
+      if: ${{ github.ref != 'refs/heads/main' }}
+      working-directory: ./app1
+      run: flutter build apk

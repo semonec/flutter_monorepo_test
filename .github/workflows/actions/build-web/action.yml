@@ -7,7 +7,9 @@ runs:
     - name: Pub get
       working-directory: ./app2
       run: flutter pub get
+      shell: bash
     - name: Build
       if: ${{ github.ref == 'refs/heads/main' }}
       working-directory: ./app2
+      shell: bash
       run: flutter build web

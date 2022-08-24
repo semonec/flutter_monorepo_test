@@ -22,15 +22,13 @@ jobs:
         run: flutter pub get
         shell: bash
       - name: Build
-        if: ${{ github.ref == 'refs/heads/main' }}
         working-directory: ./app2
         shell: bash
         run: flutter build web
       - uses: FirebaseExtended/action-hosting-deploy@v0
-        working-directory: ./app2
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
-          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
-          expires: 5d
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_CBEYOND_F8F44 }}"
           projectId: cbeyond-f8f44
           target: cbeyondadmin
+          entryPoint: "./app2"

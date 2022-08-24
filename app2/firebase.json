@@ -1,7 +1,7 @@
 {
   "hosting": {
     "site": "cbeyondadmin",
-    "public": "build/web",
+    "public": "./app2/build/web",
     "ignore": [
       "firebase.json",
       "**/.*",

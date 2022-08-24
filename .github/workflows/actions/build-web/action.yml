@@ -13,3 +13,11 @@ runs:
       working-directory: ./app2
       shell: bash
       run: flutter build web
+    - uses: FirebaseExtended/action-hosting-deploy@v0
+      working-directory: ./app2
+      with:
+        repoToken: "${{ secrets.GITHUB_TOKEN }}"
+        firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
+        projectId: cbeyond-f8f44
+        channelId: live
+        target: cbeyondadmin

@@ -5,10 +5,10 @@ name: CI
 # Controls when the workflow will run
 on:
   push:
-    branches: [ "main" ]
-    paths: 
-       - 'app1/**'
-       - 'app2/**'
+    branches: ["main"]
+    paths:
+      - "app1/**"
+      - "app2/**"
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,22 +16,22 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-java@v1
         with:
-          java-version: '12.x'
+          java-version: "12.x"
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.0'
+          flutter-version: "3.0"
       - uses: dorny/paths-filter@v2
         id: changes
         with:
-           filters: |
-              app1:
-                - 'app1/**'
-              app2:
-                - 'app2/**'
+          filters: |
+            app1:
+              - 'app1/**'
+            app2:
+              - 'app2/**'
       - name: Trigger Build-Portal app1
         if: steps.changes.outputs.app1 == 'true'
-        uses: ./github/workflows/actions/build-app
+        uses: ./actions/build-app
 
       - name: Trigger Build-Portal app2
         if: steps.changes.outputs.app2 == 'true'
-        uses: ./github/workflows/actions/build-web
+        uses: ./actions/build-web

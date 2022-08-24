@@ -16,7 +16,7 @@ runs:
     - uses: FirebaseExtended/action-hosting-deploy@v0
       with:
         repoToken: "${{ secrets.GITHUB_TOKEN }}"
-        firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
+        firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_CBEYOND_F8F44 }}"
         projectId: cbeyond-f8f44
         channelId: live
         target: cbeyondadmin

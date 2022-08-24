@@ -2,6 +2,8 @@ name: Build App
 jobs:
   build:
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: Pub get
         working-directory: ./app1
         run: flutter pub get

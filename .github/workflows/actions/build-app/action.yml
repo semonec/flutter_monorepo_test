@@ -6,12 +6,15 @@ runs:
       uses: actions/checkout@v3
     - name: Pub get
       working-directory: ./app1
+      shell: bash
       run: flutter pub get
     - name: Build
       if: ${{ github.ref == 'refs/heads/main' }}
       working-directory: ./app1
+      shell: bash
       run: flutter build appbundle
     - name: Build
       if: ${{ github.ref != 'refs/heads/main' }}
       working-directory: ./app1
+      shell: bash
       run: flutter build apk

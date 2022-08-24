@@ -3,9 +3,9 @@ jobs:
   build:
     steps:
       - name: Pub get
-        working-directory: ./app1
+        working-directory: ./app2
         run: flutter pub get
       - name: Build
         if: ${{ github.ref == 'refs/heads/main' }}
-        working-directory: ./app1
+        working-directory: ./app2
         run: flutter build web
